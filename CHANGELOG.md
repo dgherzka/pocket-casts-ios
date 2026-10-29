@@ -1,5 +1,6 @@
 8.25
 -----
+- Add Highlights: tap or hold Highlight in the player, or use a headphone button, to save the last few seconds you listened to, then find, play, annotate and share them as a Markdown document for an LLM from Profile or the episode's options
 - Fix the podcast page saying "All 1 episodes" were archived, and showing the archived message for podcasts with no episodes [#5533](https://github.com/Automattic/pocket-casts-ios/pull/5533)
 - Fix the Select a Category sheet reopening when clearing a category picked from All Categories in Discover [#5535](https://github.com/Automattic/pocket-casts-ios/pull/5535)
 - Improve VoiceOver labels: Recent searches remove buttons name the search they remove, onboarding Follow buttons include the podcast name, and played episode rows say "Played" [#5534](https://github.com/Automattic/pocket-casts-ios/pull/5534)

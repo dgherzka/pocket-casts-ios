@@ -65,6 +65,8 @@ extension HeadphoneControlAction: AnalyticsDescribable {
             return "next_chapter"
         case .addBookmark:
             return "add_bookmark"
+        case .addHighlight:
+            return "add_highlight"
         }
     }
 }

@@ -87,6 +87,11 @@ class PlaybackManager: ServerPlaybackDelegate {
     }()
     #endif
 
+    #if !APPCLIP && !os(watchOS) && !os(tvOS)
+    /// Where the listener was over the last few minutes, so a highlight can keep "the last N seconds of listening"
+    let listeningHistory = PlaybackPositionHistory()
+    #endif
+
     private lazy var sleepTimerManager = SleepTimerManager()
 
     /// The player we should fallback to
@@ -1744,6 +1749,13 @@ class PlaybackManager: ServerPlaybackDelegate {
     @objc private func progressTimerFired() {
         guard let player, let episode = currentEpisode else { return }
 
+        #if !APPCLIP && !os(watchOS) && !os(tvOS)
+        // Only while audio is actually coming out, so pauses and buffering don't count as listening
+        if isPlaying, !player.isBuffering {
+            listeningHistory.record(episodeUuid: episode.uuid, position: currentTime, rate: effects.playbackSpeed)
+        }
+        #endif
+
         StatsManager.shared.addTotalListeningTime(updateTimerInterval)
         if player.playbackRate > 1 {
             StatsManager.shared.addTimeSavedVariableSpeed((updateTimerInterval * player.playbackRate) - updateTimerInterval)
@@ -2625,6 +2637,11 @@ private extension PlaybackManager {
         case .addBookmark:
             #if !APPCLIP
             bookmark(source: .headphones)
+            #endif
+
+        case .addHighlight:
+            #if !APPCLIP && !os(watchOS) && !os(tvOS)
+            HighlightManager.shared.addHighlight(source: .headphones)
             #endif
 
         case .previousChapter:

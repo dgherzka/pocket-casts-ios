@@ -309,6 +309,8 @@ extension PlayerAction: AnalyticsDescribable {
             return "add_to_playlist"
         case .videoToggle:
             return "video_toggle"
+        case .highlight:
+            return "highlight"
         }
     }
 }

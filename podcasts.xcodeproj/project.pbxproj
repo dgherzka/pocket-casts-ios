@@ -2962,6 +2962,7 @@
 		3FDAD5122F46D79100CC3259 /* Pocket Casts App Clip */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (3FDAD51A2F46D79100CC3259 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = "Pocket Casts App Clip"; sourceTree = "<group>"; };
 		3FDAD5A22F46D82100CC3259 /* Test Plans */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (3FDAD5A42F46D82200CC3259 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = "Test Plans"; sourceTree = "<group>"; };
 		46C22EE128F7496000F4173B /* Developer Menu */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "Developer Menu"; sourceTree = "<group>"; };
+		D1A6E0F12FE5A00100C0FFEE /* Highlights */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Highlights; sourceTree = "<group>"; };
 		FF4B83AF2F981D8E001B8C56 /* Pocket Casts TV App */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (FF6033FB2FAB4B8600EB3AD5 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = "Pocket Casts TV App"; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
@@ -4637,6 +4638,7 @@
 		BDBD53F717019B2A0048C8C5 /* Pocket Casts */ = {
 			isa = PBXGroup;
 			children = (
+				D1A6E0F12FE5A00100C0FFEE /* Highlights */,
 				3F584E4F2F568314005A3593 /* CarPlay */,
 				371E0318452B7C751D0C5611 /* Fingerprint */,
 				3F584E4D2F5682BA005A3593 /* Google Cast */,
@@ -5743,6 +5745,7 @@
 				3F584E952F5683B2005A3593 /* Up Next History */,
 				3F584EC02F5683D9005A3593 /* Common SwiftUI */,
 				3F584F202F56842C005A3593 /* Bookmarks */,
+				D1A6E0F12FE5A00100C0FFEE /* Highlights */,
 				3F584F3E2F568437005A3593 /* Ratings */,
 				3F584FA42F568449005A3593 /* Onboarding */,
 				3F584FEF2F5685CE005A3593 /* Episode Cells */,

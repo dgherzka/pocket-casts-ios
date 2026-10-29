@@ -34,7 +34,7 @@ class HeadphoneSettingsViewController: PCTableViewController {
         let section = visibleSections[indexPath.section]
         let row = section.rows[indexPath.row]
 
-        let actions: [HeadphoneControlAction] = [.skipForward, .nextChapter, .skipBack, .previousChapter, .addBookmark]
+        let actions: [HeadphoneControlAction] = [.skipForward, .nextChapter, .skipBack, .previousChapter, .addBookmark, .addHighlight]
 
         switch row {
         case .nextAction:
@@ -226,6 +226,8 @@ private extension HeadphoneControlAction {
             return L10n.siriShortcutNextChapter.localizedCapitalized
         case .addBookmark:
             return L10n.addBookmark
+        case .addHighlight:
+            return L10n.highlightAdd
         }
     }
 

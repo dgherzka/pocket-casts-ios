@@ -501,6 +501,9 @@ enum HeadphoneControlAction: JSONCodable {
 
     /// Create a new bookmark for the currently playing episode
     case addBookmark
+
+    /// Create a highlight of the last few seconds of listening of the currently playing episode
+    case addHighlight
 }
 
 // MARK: - Bookmark Sorting

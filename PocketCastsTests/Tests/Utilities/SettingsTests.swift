@@ -20,6 +20,7 @@ final class SettingsTests: XCTestCase {
             .download,
             .transcript,
             .goToPodcast,
+            .highlight,
             .starEpisode,
             .chromecast,
             .archive,

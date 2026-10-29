@@ -899,6 +899,15 @@ public enum AnalyticsEvent: String {
     case bookmarkPassageEditorShown
     case bookmarkPassageEditorDismissed
 
+    // MARK: - Highlights
+
+    case highlightCreated
+    case highlightPlayTapped
+    case highlightNoteUpdated
+    case highlightDeleted
+    case highlightsShared
+    case highlightsListShown
+
     // MARK: - Headphone Controls
     case settingsHeadphoneControlsShown
     case settingsHeadphoneControlsNextChanged

@@ -165,7 +165,7 @@ extension PlayerAction {
     static var defaultActions: [PlayerAction] {
         [
             .effects, .sleepTimer, .routePicker, .shareEpisode, .addToPlaylist, .download,
-            .transcript, .goToPodcast, .addBookmark, .markPlayed,
+            .transcript, .goToPodcast, .addBookmark, .highlight, .markPlayed,
             .starEpisode, .chromecast, .archive, .videoToggle
         ]
     }
@@ -200,6 +200,8 @@ extension PlayerAction {
             self = .addToPlaylist
         case 14:
             self = .videoToggle
+        case 15:
+            self = .highlight
         default:
             return nil
         }
@@ -235,6 +237,8 @@ extension PlayerAction {
             return 13
         case .videoToggle:
             return 14
+        case .highlight:
+            return 15
         }
     }
 
@@ -285,6 +289,8 @@ extension PlayerAction {
             return L10n.playlistManualEpisodeAddToPlaylist
         case .videoToggle:
             return PlaybackManager.shared.shouldRenderVideo ? L10n.playerActionHideVideo : L10n.playerActionShowVideo
+        case .highlight:
+            return L10n.highlightAction
         }
     }
 
@@ -332,6 +338,8 @@ extension PlayerAction {
             return "playlist-add-episode"
         case .videoToggle:
             return PlaybackManager.shared.shouldRenderVideo ? "video_off" : "video_on"
+        case .highlight:
+            return "highlight"
         }
     }
 
@@ -368,6 +376,8 @@ extension PlayerAction {
             return "playlist-add-episode"
         case .videoToggle:
             return PlaybackManager.shared.shouldRenderVideo ? "video_off" : "video_on"
+        case .highlight:
+            return "highlight"
         }
     }
 

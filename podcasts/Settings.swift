@@ -1556,8 +1556,11 @@ extension L10n {
 #endif
 
 extension HeadphoneControl {
-    init(action: HeadphoneControlAction) {
+    /// `nil` for actions the server doesn't know about, like highlights, which are local to this device
+    init?(action: HeadphoneControlAction) {
         switch action {
+        case .addHighlight:
+            return nil
         case .addBookmark:
             self = .addBookmark
         case .nextChapter:

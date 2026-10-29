@@ -6717,3 +6717,66 @@
 
 /* Message shown when a network the user tapped fails to load */
 "network_fail_to_load" = "This network couldn't be loaded";
+
+/* Title of the player action, and the button in the player, that saves the last few seconds the user listened to as a highlight */
+"highlight_action" = "Highlight";
+
+/* Option in Headphone Controls that saves the last few seconds the user listened to as a highlight when a headphone button is pressed */
+"highlight_add" = "Add Highlight";
+
+/* Accessibility hint for the Highlight button in the player */
+"highlight_button_hint" = "Saves the last few seconds you listened to. Hold to keep going until you let go.";
+
+/* Message shown after a highlight is saved. '%1$@' is the part of the episode it covers, for example '0:12:03–0:12:13' */
+"highlight_saved" = "Highlight saved: %1$@";
+
+/* Title of the screen, Profile row and episode option that list the user's highlights */
+"highlights" = "Highlights";
+
+/* Shown in the list of highlights when there are none yet */
+"highlights_empty" = "No highlights yet. While an episode plays, tap Highlight in the player to save the last few seconds you heard.";
+
+/* Accessibility label for the button that shares every highlight in the list */
+"highlights_share_all" = "Share all highlights";
+
+/* Accessibility label for the button that shares the highlights of the episode being shown */
+"highlights_share_episode" = "Share this episode's highlights";
+
+/* Accessibility label for the button that shares the highlights of one episode in the list. '%1$@' is the episode title */
+"highlights_share_episode_named" = "Share the highlights of %1$@";
+
+/* Shown instead of the episode title when a highlight's episode has no title */
+"highlights_unknown_episode" = "Unknown episode";
+
+/* Title of the alert that asks the user to confirm deleting a highlight */
+"highlight_delete_title" = "Delete Highlight?";
+
+/* Message of the alert that asks the user to confirm deleting a highlight */
+"highlight_delete_message" = "Are you sure you want to delete this highlight? There’s no way to undo it.";
+
+/* Title of the action and alert used to add or change the note of a highlight */
+"highlight_edit_note" = "Edit Note";
+
+/* Placeholder of the text field for the note of a highlight */
+"highlight_note_placeholder" = "Note";
+
+/* Button that saves the note of a highlight */
+"highlight_note_save" = "Save";
+
+/* Label of the setting for how many seconds of listening a highlight keeps. '%1$d' is the number of seconds */
+"highlight_length" = "Highlight length: %1$d s";
+
+/* Accessibility value of the highlight length setting. '%1$d' is the number of seconds */
+"highlight_length_accessibility_value" = "%1$d seconds";
+
+/* Explanation below the highlight length setting */
+"highlight_length_footer" = "A highlight keeps what you heard in the last few seconds before you press Highlight, whatever the playback speed. In the full screen player, hold Highlight to keep going until you let go. To highlight with your headphones, choose Add Highlight in Settings › Headphone Controls.";
+
+/* Accessibility hint of a highlight in the list of highlights */
+"highlight_play_hint" = "Plays the episode from the start of the highlight";
+
+/* Title of the alert shown when a highlight's episode can't be played */
+"highlight_episode_unavailable_title" = "Episode Not Available";
+
+/* Message of the alert shown when a highlight's episode can't be played */
+"highlight_episode_unavailable_message" = "This episode isn't on this device anymore. Subscribe to its podcast again to play it.";

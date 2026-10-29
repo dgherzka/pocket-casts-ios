@@ -16,6 +16,7 @@ protocol NowPlayingActionsDelegate: AnyObject {
     func markPlayedTapped()
     func archiveTapped()
     func bookmarkTapped()
+    func highlightTapped()
     func transcriptTapped()
     func downloadTapped()
     func videoToggleTapped()
@@ -165,6 +166,21 @@ extension NowPlayingPlayerItemViewController: NowPlayingActionsDelegate {
             addToShelf(on: button)
             smartBookmarksTipAnchor = button
 
+        case .highlight:
+            #if !APPCLIP
+            let button = UIButton(frame: CGRect.zero)
+            button.isPointerInteractionEnabled = true
+            button.imageView?.tintColor = ThemeColor.playerContrast02()
+            button.setImage(UIImage(named: action.largeIconName(episode: playingEpisode)), for: .normal)
+            // Pressing starts the highlight and letting go saves it, so holding the button keeps it going
+            button.addTarget(self, action: #selector(highlightPressed(_:)), for: .touchDown)
+            button.addTarget(self, action: #selector(highlightReleased(_:)), for: [.touchUpInside, .touchUpOutside, .touchCancel])
+            button.accessibilityLabel = L10n.highlightAction
+            button.accessibilityHint = L10n.highlightButtonHint
+
+            addToShelf(on: button)
+            #endif
+
         case .transcript:
             #if !APPCLIP
             let button = TranscriptShelfButton(frame: CGRect.zero)
@@ -298,6 +314,12 @@ extension NowPlayingPlayerItemViewController: NowPlayingActionsDelegate {
         #endif
     }
 
+    func highlightTapped() {
+        #if !APPCLIP
+        HighlightManager.shared.addHighlight(source: .overflowMenu)
+        #endif
+    }
+
     func transcriptTapped() {
         #if !APPCLIP
         openTranscript()
@@ -421,6 +443,30 @@ extension NowPlayingPlayerItemViewController: NowPlayingActionsDelegate {
         }
 
         bookmarkTapped()
+        #endif
+    }
+
+    @objc private func highlightPressed(_ sender: UIButton) {
+        #if !APPCLIP
+        shelfButtonTapped(.highlight)
+        sender.imageView?.tintColor = activeShelfButtonTintColor
+        UIImpactFeedbackGenerator(style: .medium).impactOccurred()
+
+        HighlightManager.shared.beginHighlight(source: .player)
+        #endif
+    }
+
+    @objc private func highlightReleased(_ sender: UIButton) {
+        #if !APPCLIP
+        sender.imageView?.tintColor = ThemeColor.playerContrast02()
+
+        if HighlightManager.shared.hasPendingHighlight {
+            HighlightManager.shared.endHighlight()
+        } else {
+            // VoiceOver activates the button without pressing it down first
+            shelfButtonTapped(.highlight)
+            HighlightManager.shared.addHighlight(source: .player)
+        }
         #endif
     }
 

@@ -39,6 +39,15 @@ extension EpisodeDetailViewController {
         }
         addPicker.addAction(action: addToPlaylistAction)
 
+        if HighlightManager.shared.highlightCount(forEpisode: episode.uuid) > 0 {
+            let highlightsAction = OptionAction(label: L10n.highlights, icon: "highlight") { [weak self] in
+                guard let self else { return }
+                let highlightsController = HighlightsViewController(episodeUuid: self.episode.uuid, showsDoneButton: true)
+                self.present(SJUIUtils.navController(for: highlightsController), animated: true, completion: nil)
+            }
+            addPicker.addAction(action: highlightsAction)
+        }
+
         addPicker.present(from: self)
     }
 
