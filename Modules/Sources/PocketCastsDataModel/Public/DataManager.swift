@@ -26,6 +26,7 @@ public class DataManager {
 
     public let autoAddCandidates: AutoAddCandidatesDataManager
     public let bookmarks: BookmarkDataManager
+    public let highlights: HighlightDataManager
     public let ratings: RatingsDataManager
     public let networkDataUsageManager: NetworkDataUsageManager
 
@@ -77,6 +78,7 @@ public class DataManager {
 
         autoAddCandidates = AutoAddCandidatesDataManager(dbQueue: dbQueue)
         bookmarks = BookmarkDataManager(dbQueue: dbQueue)
+        highlights = HighlightDataManager(dbQueue: dbQueue)
         ratings = RatingsDataManager()
         networkDataUsageManager = NetworkDataUsageManager(dbQueue: dbQueue)
 

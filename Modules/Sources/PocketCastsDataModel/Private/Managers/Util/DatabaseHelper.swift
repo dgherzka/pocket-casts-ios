@@ -20,6 +20,10 @@ class DatabaseHelper {
                     FileLog.shared.addMessage("Schema update from \(startingSchemaVersion) to \(newSchemaVersion)")
                     try db.executeUpdate("PRAGMA user_version = \(newSchemaVersion)", values: nil)
                 }
+
+                // Highlights aren't a numbered schema version: they're created if missing on every
+                // launch, so they never take a version number that a future migration needs.
+                try HighlightDataManager.createTable(in: db)
             } catch {
                 assertionFailure("Failed to setup database \(db.lastErrorCode()): \(db.lastErrorMessage()) actual error: \(error)")
                 FileLog.shared.addMessage("Failed to setup database \(db.lastErrorCode()): \(db.lastErrorMessage()) actual error: \(error)")
